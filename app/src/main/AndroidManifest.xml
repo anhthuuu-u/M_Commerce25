@@ -13,6 +13,9 @@
         android:theme="@style/Theme.K22411CSampleProject"
         tools:targetApi="31">
         <activity
+            android:name=".EmployeeHeathCareActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReportManagementActivity"
             android:exported="false" />
         <activity
