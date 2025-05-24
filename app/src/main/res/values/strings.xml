@@ -49,6 +49,13 @@
     <string name="title_compare_product">Compare Product</string>
     <string name="title_add_product_category">Add Product Category</string>
     <string name="title_export_data">Export Data</string>
+    <string name="title_product_detail">PRODUCT DETAIL</string>
+    <string name="title_category_id">Category ID:</string>
+    <string name="title_product_id">Product ID:</string>
+    <string name="title_product_name">Product Name:</string>
+    <string name="title_product_quantity">Product Quantity:</string>
+    <string name="title_product_price">Product Price:</string>
+    <string name="title_product_image_id">Product Image ID:</string>
 
 
 </resources>

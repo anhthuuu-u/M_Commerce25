@@ -48,5 +48,36 @@ public class Product implements Serializable {
         this.price = price;
         this.image_id = image_id;
     }
+
+    // ✅ Thêm các phương thức getter
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getCate_id() {
+        return cate_id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getImage_id() {
+        return image_id;
+    }
+
+
 }
 

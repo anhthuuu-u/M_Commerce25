@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import xiiyuoo.com.models.Category;
+import xiiyuoo.com.models.Customer;
 import xiiyuoo.com.models.ListCategory;
 import xiiyuoo.com.models.Product;
 
@@ -58,7 +59,23 @@ public class ProductManagementActivity extends AppCompatActivity {
 
             }
         });
+
+        lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Product p=adapterProduct.getItem(i);
+                displayProductDetailActivity(p);
+            }
+        });
     }
+
+    private void displayProductDetailActivity(Product p)
+    {
+        Intent intent = new Intent(ProductManagementActivity.this, ProductDetailActivity.class);
+        intent.putExtra("SELECTED_PRODUCT", p); // ✅ Correct key
+        startActivity(intent);
+    }
+
 
     private void displayProductsByCategory(Category c) {
         //xóa dlieu cũ trong listview đi:
@@ -111,6 +128,8 @@ public class ProductManagementActivity extends AppCompatActivity {
             Toast.makeText(ProductManagementActivity.this,
                     "Kiểm tra số lượng sản phẩm",
                     Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(ProductManagementActivity.this,ProductDetailActivity.class);
+            startActivity(intent);
         }
 
         else if(item.getItemId()==R.id.menu_view_product)
@@ -118,6 +137,8 @@ public class ProductManagementActivity extends AppCompatActivity {
             Toast.makeText(ProductManagementActivity.this,
                     "Xem thông tin chi tiết sản phẩm",
                     Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(ProductManagementActivity.this,ProductDetailActivity.class);
+            startActivity(intent);
         }
 
         else if(item.getItemId()==R.id.menu_compare_product)
