@@ -74,18 +74,18 @@ public class MainActivity extends AppCompatActivity {
                 openProductManagementActivity();
             }
         });
-        imgOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openOrderManagementActivity();
-            }
-        });
-        txtOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openOrderManagementActivity();
-            }
-        });
+//        imgOrder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openOrderManagementActivity();
+//            }
+//        });
+//        txtOrder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openOrderManagementActivity();
+//            }
+//        });
         imgWarehouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,11 +176,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this, ProductManagementActivity.class);
         startActivity(intent);
     }
-    void openOrderManagementActivity()
-    {
-        Intent intent=new Intent(MainActivity.this, OrderManagementActivity.class);
-        startActivity(intent);
-    }
+//    void openOrderManagementActivity()
+//    {
+//        Intent intent=new Intent(MainActivity.this, OrderManagementActivity.class);
+//        startActivity(intent);
+//    }
     void openWarehouseManagementActivity()
     {
         Intent intent=new Intent(MainActivity.this, WarehouseManagementActivity.class);
@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
         imgProduct = findViewById(R.id.imgProduct);
         txtProduct = findViewById(R.id.txtProduct);
 
-        imgOrder = findViewById(R.id.imgOrder);
+        imgOrder = findViewById(R.id.imgAdvancedProduct);
         txtOrder = findViewById(R.id.txtOrder);
 
         imgWarehouse = findViewById(R.id.imgWarehouse);

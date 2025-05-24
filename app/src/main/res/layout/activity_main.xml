@@ -94,7 +94,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgOrder"
+                    android:id="@+id/imgAdvancedProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:srcCompat="@mipmap/ic_order" />
@@ -103,7 +103,7 @@
                     android:id="@+id/txtOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_order"
+                    android:text="@string/title_AdvancedProduct"
                     android:textAlignment="center"
                     android:textColor="#3ED07D"
                     android:textSize="24sp"
