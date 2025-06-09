@@ -16,8 +16,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgEmployee;
     TextView txtEmployee;
 
-    ImageView imgCustomer, imgProduct, imgOrder, imgWarehouse, imgBill, imgVoucher, imgBlog, imgTransport, imgReport;
-    TextView txtCustomer, txtProduct, txtOrder, txtWarehouse, txtBill, txtVoucher, txtBlog, txtTransport, txtReport;
+    ImageView imgCustomer, imgProduct, imgOrder, imgPaymentMethod, imgVoucher, imgBlog, imgTransport, imgReport;
+    TextView txtCustomer, txtProduct, txtOrder, txtPaymentMethod, txtVoucher, txtBlog, txtTransport, txtReport;
+
+    ImageView imgAdvancedProduct;
+    TextView txtAdvancedProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        imgAdvancedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAdvancedProductManagementActivity();
+            }
+        });
+
+        txtAdvancedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAdvancedProductManagementActivity();
+            }
+        });
+
         imgEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,37 +91,26 @@ public class MainActivity extends AppCompatActivity {
                 openProductManagementActivity();
             }
         });
-//        imgOrder.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openOrderManagementActivity();
-//            }
-//        });
-//        txtOrder.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openOrderManagementActivity();
-//            }
-//        });
-        imgWarehouse.setOnClickListener(new View.OnClickListener() {
+
+        imgPaymentMethod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWarehouseManagementActivity();
+                openPaymentMethodActivity();
             }
         });
-        txtWarehouse.setOnClickListener(new View.OnClickListener() {
+        txtPaymentMethod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWarehouseManagementActivity();
+                openPaymentMethodActivity();
             }
         });
-        imgBill.setOnClickListener(new View.OnClickListener() {
+        imgOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openBillManagementActivity();
             }
         });
-        txtBill.setOnClickListener(new View.OnClickListener() {
+        txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openBillManagementActivity();
@@ -160,6 +166,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void openAdvancedProductManagementActivity() {
+        Intent intent=new Intent(MainActivity.this, AdvancedProductActivity.class);
+        startActivity(intent);
+    }
+
     void openEmployeeManagementActivity()
     {
         Intent intent=new Intent(MainActivity.this, EmployeeManagementActivity.class);
@@ -181,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
 //        Intent intent=new Intent(MainActivity.this, OrderManagementActivity.class);
 //        startActivity(intent);
 //    }
-    void openWarehouseManagementActivity()
+    void openPaymentMethodActivity()
     {
-        Intent intent=new Intent(MainActivity.this, WarehouseManagementActivity.class);
+        Intent intent=new Intent(MainActivity.this, PaymentMethodActivity.class);
         startActivity(intent);
     }
 
@@ -223,14 +234,13 @@ public class MainActivity extends AppCompatActivity {
         imgProduct = findViewById(R.id.imgProduct);
         txtProduct = findViewById(R.id.txtProduct);
 
-        imgOrder = findViewById(R.id.imgAdvancedProduct);
+
+
+        txtPaymentMethod = findViewById(R.id.txtPaymentMethod);
+        imgPaymentMethod = findViewById(R.id.imgPaymentMethod);
+
         txtOrder = findViewById(R.id.txtOrder);
-
-        imgWarehouse = findViewById(R.id.imgWarehouse);
-        txtWarehouse = findViewById(R.id.txtWarehouse);
-
-        imgBill = findViewById(R.id.imgBill);
-        txtBill = findViewById(R.id.txtBill);
+        imgOrder = findViewById(R.id.imgOrder);
 
         imgVoucher = findViewById(R.id.imgVoucher);
         txtVoucher = findViewById(R.id.txtVoucher);
@@ -243,5 +253,8 @@ public class MainActivity extends AppCompatActivity {
 
         imgReport = findViewById(R.id.imgReport);
         txtReport = findViewById(R.id.txtReport);
+
+        imgAdvancedProduct = findViewById(R.id.imgAdvancedProduct);
+        txtAdvancedProduct = findViewById(R.id.txtAdvancedProduct);
     }
 }

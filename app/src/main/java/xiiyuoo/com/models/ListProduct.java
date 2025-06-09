@@ -2,67 +2,47 @@ package xiiyuoo.com.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Random;
+
+import xiiyuoo.com.k22411csampleproject.R;
 
 public class ListProduct implements Serializable {
     private ArrayList<Product> products;
+    private ArrayList<Category> categories; // Thêm thuộc tính categories
 
-//    public ListProduct() {
-//        products= new ArrayList<>();
-//    }
-//
-//    public ArrayList<Product> getProducts()
-//    {
-//        return products;
-//    }
-//
-//    public void setProducts(ArrayList<Product> products)
-//    {
-//        this.products = products;
-//    }
-//
-//    public  void addProducts(Product p)
-//    {
-//        products.add(p);
-//    }
-//
-//    public void generate_sample_dataset()
-//    {
-//        Random random=new Random();
-//        for (int i=1; i<=100; i++)
-//        {
-//            int id=i;
-//            String name ="Product "+i;
-//            int quantity = 0;
-//            double price;
-//            int cate_id;
-//            String description;
-//            for(int p=1;p<=100;p++)
-//            {
-//                quantity+=random.nextInt(3);
-//
-//            }
-//
-//            for(int p=1;p<=100;p++)
-//            {
-//                quantity+=random.nextInt(3);
-//
-//            }
-//            // Tạo giá ngẫu nhiên cho sản phẩm (giá từ 10 đến 500)
-//            price = 10 + random.nextInt(491); // Tạo giá từ 10 đến 500
-//
-//            // Tạo ID danh mục ngẫu nhiên (giả sử có một vài danh mục)
-//            cate_id = random.nextInt(5) + 1;
-//            // Tạo mô tả ngẫu nhiên
-//            description = "Description for " + name;
-//
-//            // Tạo ID danh mục ngẫu nhiên (giả sử có một vài danh mục)
-//            cate_id = random.nextInt(5) + 1; // Giả sử có 5 danh mục, ID từ 1 đến 5
-//
-//
-//            Product p=new Product(id,name,quantity,price,cate_id,description);
-//            addProducts(p);
+    public ListProduct() {
+        products = new ArrayList<>();
+        categories = new ArrayList<>();
+    }
 
-//        }
-//    }
+    // Thêm phương thức getCategories() trả về danh sách danh mục
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
+
+    // Phương thức này sẽ thêm các danh mục vào trong danh sách categories
+    public void addCategory(Category category) {
+        categories.add(category);
+    }
+
+    // Thêm sản phẩm vào danh sách
+    // Phương thức trả về danh sách sản phẩm, đảm bảo kiểu trả về là ArrayList<Product>
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+    // Thêm sản phẩm vào danh sách
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    // Bạn có thể thêm dữ liệu mẫu vào danh mục hoặc sản phẩm tại đây
+    public void generate_sample_product_dataset() {
+        // Ví dụ tạo sản phẩm
+        Product p1 = new Product(1, "Coca Cola", 100, 10.0, 1, "Soft drink", "1");
+        // Và tạo danh mục
+        Category c1 = new Category(1, "Soft Drinks",1);
+        c1.addProduct(p1); // Thêm sản phẩm vào danh mục
+        categories.add(c1); // Thêm danh mục vào danh sách categories
+
+        // Tiếp tục với các sản phẩm và danh mục khác
+    }
 }

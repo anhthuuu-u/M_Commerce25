@@ -40,4 +40,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    //noinspection GradleDependency
+    implementation (libs.glide) // Thêm Glide vào dự án
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0") // Glide compiler
 }

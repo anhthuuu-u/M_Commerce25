@@ -100,7 +100,7 @@
                     app:srcCompat="@mipmap/ic_order" />
 
                 <TextView
-                    android:id="@+id/txtOrder"
+                    android:id="@+id/txtAdvancedProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/title_AdvancedProduct"
@@ -123,16 +123,16 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgWarehouse"
+                    android:id="@+id/imgPaymentMethod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_warehouse" />
+                    app:srcCompat="@mipmap/ic_paymentmethod" />
 
                 <TextView
-                    android:id="@+id/txtWarehouse"
+                    android:id="@+id/txtPaymentMethod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_warehouse"
+                    android:text="@string/title_paymentmethod"
                     android:textAlignment="center"
                     android:textColor="#3ED07D"
                     android:textSize="24sp"
@@ -146,16 +146,16 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgBill"
+                    android:id="@+id/imgOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_bill" />
+                    app:srcCompat="@mipmap/ic_order" />
 
                 <TextView
-                    android:id="@+id/txtBill"
+                    android:id="@+id/txtOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_bill"
+                    android:text="@string/title_orders"
                     android:textAlignment="center"
                     android:textColor="#3ED07D"
                     android:textSize="24sp"

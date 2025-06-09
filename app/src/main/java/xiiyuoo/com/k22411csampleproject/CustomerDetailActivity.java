@@ -3,6 +3,8 @@ package xiiyuoo.com.k22411csampleproject;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +22,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
     EditText edt_customer_phone;
     EditText edt_customer_username;
     EditText edt_customer_password;
+    Button btnNew;
+    Button btnSave;
+    Button btnRemove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +37,40 @@ public class CustomerDetailActivity extends AppCompatActivity {
             return insets;
         });
         addViews();
+        addEvents();
     }
+
+    private void addEvents() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                process_save_customer();
+            }
+        });
+    }
+
+    private void process_save_customer()
+    {
+        //Lấy dữ liệu trên giao diện và mô hình hóa lại hướng đói tượng Customer
+        Customer c=new Customer();
+        c.setId(Integer.parseInt(edt_customer_id.getText().toString()));
+        c.setName(edt_customer_name.getText().toString());
+        c.setEmail(edt_customer_email.getText().toString());
+        c.setPhone(edt_customer_phone.getText().toString());
+        c.setUsername(edt_customer_username.getText().toString());
+        c.setPassword(edt_customer_password.getText().toString());
+
+        //Lấy intent từ màn hình gọi nó
+        Intent intent=getIntent();
+        //đóng gói dữ liệu vào intent;
+        intent.putExtra("NEW_CUSTOMER",c);
+        //đóng dấu là sẽ gửi hàng này đi:
+        setResult(500,intent);
+        //đóng mn hình này lại, để màn hình gọi nó nhận được kết quả
+        finish();
+
+    }
+
     private void addViews() {
         edt_customer_id=findViewById(R.id.edt_customer_id);
         edt_customer_name=findViewById(R.id.edt_customer_name);
@@ -41,6 +79,10 @@ public class CustomerDetailActivity extends AppCompatActivity {
         edt_customer_username=findViewById(R.id.edt_customer_username);
         edt_customer_password=findViewById(R.id.edt_customer_password);
         display_infor();
+
+        btnNew=findViewById(R.id.btnNew);
+        btnSave=findViewById(R.id.btnSave);
+        btnRemove=findViewById(R.id.btnRemove);
     }
 
     private void display_infor() {
