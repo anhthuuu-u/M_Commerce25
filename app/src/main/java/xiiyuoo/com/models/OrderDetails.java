@@ -73,5 +73,9 @@ public class OrderDetails {
         TotalValue=(Quantity*Price-Discount/100*Quantity*Price)*(1+VAT/100);
         return TotalValue;
     }
+    public double setTotalValue(double totalValue) {
+        TotalValue=(Quantity*Price-Discount/100*Quantity*Price)*(1+VAT/100);
+        return TotalValue;
+    }
 
 }

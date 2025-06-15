@@ -58,6 +58,14 @@
     <string name="title_product_image_id">Product Image ID:</string>
     <string name="title_paymentmethod">Payment Method</string>
     <string name="title_orders">Orders</string>
+    <string name="title_ordersdetails">ORDER DETAILS</string>
+    <string name="title_orderid">"ORDER ID: "</string>
+    <string name="title_totalvalue">TOTAL VALUE:</string>
+    <string name="title_productname">Product Name</string>
+    <string name="title_quantity">Quantity</string>
+    <string name="title_unitprice">Unit Price</string>
+    <string name="title_discount">Discount</string>
+    <string name="title_total">Total Value</string>
 
 
 </resources>

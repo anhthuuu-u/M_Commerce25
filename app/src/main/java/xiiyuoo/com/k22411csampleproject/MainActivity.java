@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity {
         imgOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openBillManagementActivity();
+                openOrderViewerActivity();
             }
         });
         txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openBillManagementActivity();
+                openOrderViewerActivity();
             }
         });
         imgVoucher.setOnClickListener(new View.OnClickListener() {
@@ -198,9 +198,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    void openBillManagementActivity()
+    void openOrderViewerActivity()
     {
-        Intent intent=new Intent(MainActivity.this, BillManagementActivity.class);
+        Intent intent=new Intent(MainActivity.this, OrdersViewerActivity.class);
         startActivity(intent);
     }
 
