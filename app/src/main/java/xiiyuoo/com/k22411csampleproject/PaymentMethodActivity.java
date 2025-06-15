@@ -9,16 +9,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 import xiiyuoo.com.adapters.PaymentMethodApdater;
 import xiiyuoo.com.connectors.PaymentMethodConnector;
 import xiiyuoo.com.connectors.SQLiteConnector;
-import xiiyuoo.com.models.ListPaymentMethod;
+import xiiyuoo.com.models.PaymentMethod;
 
 public class PaymentMethodActivity extends AppCompatActivity {
 
     ListView lvPaymentMethod;
     PaymentMethodApdater adapter;
-    ListPaymentMethod lpm;
     PaymentMethodConnector paymentMethodConnector;
 
     @Override
@@ -35,23 +36,15 @@ public class PaymentMethodActivity extends AppCompatActivity {
     }
 
     private void addViews() {
-        lvPaymentMethod=findViewById(R.id.lvPaymentMethod);
-        adapter=new PaymentMethodApdater(PaymentMethodActivity.this,R.layout.item_paymentmethod);
+        lvPaymentMethod = findViewById(R.id.lvPaymentMethod);
+        adapter = new PaymentMethodApdater(PaymentMethodActivity.this, R.layout.item_paymentmethod);
         lvPaymentMethod.setAdapter(adapter);
         paymentMethodConnector = new PaymentMethodConnector();
 
-        // Mở kết nối với cơ sở dữ liệu
         SQLiteConnector sqLiteConnector = new SQLiteConnector(this);
-        sqLiteConnector.openDatabase();
+        ArrayList<PaymentMethod> paymentMethods = paymentMethodConnector.getAllPaymentMethods(sqLiteConnector.openDatabase());
+        adapter.addAll(paymentMethods);
 
-        // Lấy tất cả phương thức thanh toán từ cơ sở dữ liệu
-        lpm = paymentMethodConnector.getAllPaymentMethods(sqLiteConnector.getDatabase());
-
-        // Thêm các payment methods vào adapter
-        adapter.addAll(lpm.getPaymentMethods());
-
-//        lpm=new ListPaymentMethod();
-//        lpm.gen_payments_method();
-//        adapter.addAll(lpm.getPaymentMethods());
+        sqLiteConnector.closeDatabase();
     }
 }
