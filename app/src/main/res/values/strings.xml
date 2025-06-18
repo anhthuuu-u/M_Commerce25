@@ -66,6 +66,10 @@
     <string name="title_unitprice">Unit Price</string>
     <string name="title_discount">Discount</string>
     <string name="title_total">Total Value</string>
+    <string name="title_telephony">Telephony</string>
+    <string name="title_contactname">Contact Name</string>
+    <string name="title_phonenumber">Phone Number</string>
+    <string name="title_body">BODY</string>
 
 
 </resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_filter_viettel"
+        android:title="Filter Viettel"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_filter_vinaphone"
+        android:title="Filter VinaPhone"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_filter_others"
+        android:title="Filter Others"
+        app:showAsAction="never" />
+</menu>

@@ -9,6 +9,12 @@
     tools:context=".LoginActivity"
     >
 
+    <TextView
+        android:id="@+id/txtNetworktype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
@@ -75,4 +81,5 @@
             android:layout_weight="1"
             android:src="@mipmap/ic_login_exit" />
     </LinearLayout>
+
 </LinearLayout>

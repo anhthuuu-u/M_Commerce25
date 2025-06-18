@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgEmployee;
     TextView txtEmployee;
 
-    ImageView imgCustomer, imgProduct, imgOrder, imgPaymentMethod, imgVoucher, imgBlog, imgTransport, imgReport;
-    TextView txtCustomer, txtProduct, txtOrder, txtPaymentMethod, txtVoucher, txtBlog, txtTransport, txtReport;
+    ImageView imgCustomer, imgProduct, imgOrder, imgPaymentMethod, imgTelephony, imgBlog, imgTransport, imgReport;
+    TextView txtCustomer, txtProduct, txtOrder, txtPaymentMethod, txtTelephony, txtBlog, txtTransport, txtReport;
 
     ImageView imgAdvancedProduct;
     TextView txtAdvancedProduct;
@@ -116,16 +116,16 @@ public class MainActivity extends AppCompatActivity {
                 openOrderViewerActivity();
             }
         });
-        imgVoucher.setOnClickListener(new View.OnClickListener() {
+        imgTelephony.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openVoucherManagementActivity();
+                openTelephonyActivity();
             }
         });
-        txtVoucher.setOnClickListener(new View.OnClickListener() {
+        txtTelephony.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openVoucherManagementActivity();
+                openTelephonyActivity();
             }
         });
         imgBlog.setOnClickListener(new View.OnClickListener() {
@@ -204,9 +204,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    void openVoucherManagementActivity()
+    void openTelephonyActivity()
     {
-        Intent intent=new Intent(MainActivity.this,VoucherManagementActivity.class);
+        Intent intent=new Intent(MainActivity.this,TelephonyActivity.class);
         startActivity(intent);
     }
     void openBlogManagementActivity()
@@ -242,8 +242,8 @@ public class MainActivity extends AppCompatActivity {
         txtOrder = findViewById(R.id.txtOrder);
         imgOrder = findViewById(R.id.imgOrder);
 
-        imgVoucher = findViewById(R.id.imgVoucher);
-        txtVoucher = findViewById(R.id.txtVoucher);
+        imgTelephony = findViewById(R.id.imgTelephony);
+        txtTelephony = findViewById(R.id.txtTelephony);
 
         imgBlog = findViewById(R.id.imgBlog);
         txtBlog = findViewById(R.id.txtBlog);

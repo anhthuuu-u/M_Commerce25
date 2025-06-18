@@ -3,6 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +30,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K22411CSampleProject"
         tools:targetApi="31">
+        <activity
+            android:name=".SendSMSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TelephonyActivity"
+            android:exported="false" />
         <activity
             android:name=".OrderDetailsActivity"
             android:exported="false" />
@@ -73,6 +95,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <receiver android:name="xiiyuoo.com.receivers.SmsReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

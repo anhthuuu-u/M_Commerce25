@@ -1,17 +1,24 @@
 package xiiyuoo.com.k22411csampleproject;
 
 import android.app.DatePickerDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -39,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
     String DATABASE_NAME="SalesDatabase.sqlite";
     private static final String DB_PATH_SUFFIX = "/databases/";
     SQLiteDatabase database=null;
+    BroadcastReceiver networkReceiver=null;
+    Button btnLogin;
+    TextView txtNetworktype;
 
 
     @Override
@@ -54,12 +64,46 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         processCopy();
+        setupBroadcastReceiver();
+    }
+
+    private void setupBroadcastReceiver() {
+        networkReceiver=new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                //chút nữa sẽ tu động nhảy vào đây khi internet bị thay đổi trạng thái
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                if(networkInfo != null && networkInfo.isConnected()) {
+                    //Vào đây tức là có internet, kh qtam wifi hay 4g
+                    if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                        txtNetworktype.setText("Connected with WIFI");
+                        txtNetworktype.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light)); // Green for WiFi
+                        btnLogin.setVisibility(View.VISIBLE);
+                    } else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+                        txtNetworktype.setText("Connected with Mobile Data");
+                        txtNetworktype.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light)); // Blue for Mobile Data
+                        btnLogin.setVisibility(View.VISIBLE);
+                    }
+                }
+                else
+                {
+                    txtNetworktype.setText("No connection");
+                    txtNetworktype.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light)); // Red for No Connection
+                    btnLogin.setVisibility(View.INVISIBLE);
+                }
+
+
+            }
+        };
     }
 
     private void addViews() {
         edtUserName=findViewById(R.id.edtUserName);
         edtPassword=findViewById(R.id.edtPassword);
         chkSaveLogin=findViewById(R.id.chkSaveLoginInfor);
+        btnLogin=findViewById(R.id.btnLogin);
+        txtNetworktype = findViewById(R.id.txtNetworktype);
     }
 
     public void do_login(View view) {
@@ -129,6 +173,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         saveLoginInformation();
+
+        if (networkReceiver != null)
+        {
+            unregisterReceiver(networkReceiver);
+        }
     }
 
     public  void restoreLoginInformation()
@@ -149,6 +198,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         restoreLoginInformation();
+
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkReceiver, filter);
     }
 
     private void processCopy() {
